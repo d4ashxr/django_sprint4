@@ -1,11 +1,18 @@
 from inspect import isclass
 from typing import Type
 
+<<<<<<< HEAD
 from django.db import models
 from django.db.models import Model
 
 from adapters.student_adapter import StudentModelAdapter
 
+=======
+from adapters.student_adapter import StudentModelAdapter
+from django.db import models
+from django.db.models import Model
+
+>>>>>>> 7b47681 (Initial commit)
 
 class PostModelAdapter(StudentModelAdapter):
     """

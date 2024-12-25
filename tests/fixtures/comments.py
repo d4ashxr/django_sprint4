@@ -2,9 +2,14 @@ from typing import Type
 
 import pytest
 from django.db.models import Model
+<<<<<<< HEAD
 from mixer.backend.django import Mixer
 
 from fixtures.types import CommentModelAdapterT
+=======
+from fixtures.types import CommentModelAdapterT
+from mixer.backend.django import Mixer
+>>>>>>> 7b47681 (Initial commit)
 
 
 @pytest.fixture

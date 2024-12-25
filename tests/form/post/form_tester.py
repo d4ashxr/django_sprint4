@@ -1,4 +1,5 @@
 from io import BytesIO
+<<<<<<< HEAD
 from typing import Type, Dict
 
 from PIL import Image
@@ -7,6 +8,15 @@ from django.forms import BaseForm
 
 from adapters.post import PostModelAdapter
 from form.base_form_tester import BaseFormTester
+=======
+from typing import Dict, Type
+
+from adapters.post import PostModelAdapter
+from django.core.files.uploadedfile import SimpleUploadedFile
+from django.forms import BaseForm
+from form.base_form_tester import BaseFormTester
+from PIL import Image
+>>>>>>> 7b47681 (Initial commit)
 
 
 class PostFormTester(BaseFormTester):

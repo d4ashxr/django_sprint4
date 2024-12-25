@@ -1,6 +1,7 @@
 from typing import Tuple, Union
 
 import bs4
+<<<<<<< HEAD
 from django.db.models import QuerySet, Model
 from django.forms import BaseForm
 from django.http import HttpResponse
@@ -23,6 +24,23 @@ from form.base_form_tester import (
     DatabaseCreationException,
     ItemCreatedException,
 )
+=======
+from conftest import TitledUrlRepr
+from django.db.models import Model, QuerySet
+from django.forms import BaseForm
+from django.http import HttpResponse
+from fixtures.types import ModelAdapterT
+from form.base_form_tester import (AuthenticatedEditException, BaseFormTester,
+                                   DatabaseCreationException,
+                                   FormMethodException,
+                                   FormTagMissingException,
+                                   FormValidationException,
+                                   ItemCreatedException, SubmitTester,
+                                   TextareaMismatchException,
+                                   TextareaTagMissingException,
+                                   UnauthenticatedEditException,
+                                   UnauthorizedEditException)
+>>>>>>> 7b47681 (Initial commit)
 
 
 class EditCommentFormTester(BaseFormTester):

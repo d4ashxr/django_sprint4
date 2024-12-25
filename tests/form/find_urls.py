@@ -1,8 +1,15 @@
+<<<<<<< HEAD
 from typing import List, Sequence, Dict, Optional
 
 from bs4 import BeautifulSoup
 from bs4.element import Tag, SoupStrainer
 
+=======
+from typing import Dict, List, Optional, Sequence
+
+from bs4 import BeautifulSoup
+from bs4.element import SoupStrainer, Tag
+>>>>>>> 7b47681 (Initial commit)
 from conftest import KeyVal
 
 

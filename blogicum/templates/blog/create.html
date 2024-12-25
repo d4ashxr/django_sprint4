@@ -1,0 +1,93 @@
+...{% extends "base.html" %}
+{% load django_bootstrap5 %}
+
+{% block title %}
+  {% if '/edit/' in request.path %}
+    Редактирование публикации
+  {% elif "/delete/" in request.path %}
+    Удаление публикации
+  {% else %}
+    Добавление публикации
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class="col d-flex justify-content-center">
+    <div class="card" style="width: 40rem;">
+      <div class="card-header">
+        {% if '/edit/' in request.path %}
+          Редактирование публикации
+        {% elif '/delete/' in request.path %}
+          Удаление публикации
+        {% else %}
+          Добавление публикации
+        {% endif %}
+      </div>
+      <div class="card-body">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {% if "/delete/" not in request.path %}
+            {% bootstrap_form form %}
+
+            <!-- Поля для добавления новой категории и местоположения -->
+            <div class="mb-3">
+              <input type="text" id="newCategory" class="form-control" placeholder="Новая Категория">
+              <button type="button" class="btn btn-secondary mt-2" onclick="addCategory()">Добавить категорию</button>
+            </div>
+
+            <div class="mb-3">
+              <input type="text" id="newLocation" class="form-control" placeholder="Новое Местоположение">
+              <button type="button" class="btn btn-secondary mt-2" onclick="addLocation()">Добавить местоположение</button>
+            </div>
+          {% else %}
+            <article>
+              {% if form.instance.image %}
+                <a href="{{ form.instance.image.url }}" target="_blank">
+                  <img class="border-3 rounded img-fluid img-thumbnail mb-2" src="{{ form.instance.image.url }}" alt="Image">
+                </a>
+              {% endif %}
+              <p><strong>Дата публикации:</strong> {{ form.instance.pub_date|date:"d E Y" }} | 
+              <strong>Местоположение:</strong> {% if form.instance.location and form.instance.location.is_published %}{{ form.instance.location.name }}{% else %}Планета Земля{% endif %}</p>
+              <h3>{{ form.instance.title }}</h3>
+              <p>{{ form.instance.text|linebreaksbr }}</p>
+            </article>
+          {% endif %}
+          {% bootstrap_button button_type="submit" content="Отправить" %}
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function addCategory() {
+      var newCategory = document.getElementById('newCategory').value;
+      if (newCategory) {
+        var select = document.querySelector('select[name="category"]');  // Предположим, что поле category — это <select>
+        if (select) {
+          var option = document.createElement("option");
+          option.text = newCategory;
+          option.value = newCategory;
+          select.add(option);
+          select.value = newCategory;  // Выберите новую категорию по умолчанию
+        }
+      }
+    }
+
+    function addLocation() {
+      var newLocation = document.getElementById('newLocation').value;
+      if (newLocation) {
+        var select = document.querySelector('select[name="location"]');  // Предположим, что поле location — это <select>
+        if (select) {
+          var option = document.createElement("option");
+          option.text = newLocation;
+          option.value = newLocation;
+          select.add(option);
+          select.value = newLocation;  //
+
+Выберите новое местоположение по умолчанию
+        }
+      }
+    }
+  </script>
+{% endblock %}

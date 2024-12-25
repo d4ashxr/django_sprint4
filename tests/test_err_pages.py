@@ -51,6 +51,7 @@ def test_custom_err_handlers(client, user_client):
         500: "500.html",
     }
     for status, fname in err_pages_vs_file_names.items():
+<<<<<<< HEAD
         try:
             fpath = settings.TEMPLATES_DIR / "pages" / fname
         except Exception as e:
@@ -60,6 +61,9 @@ def test_custom_err_handlers(client, user_client):
                 '(например, экземпляром pathlib.Path). '
                 f'При операции конкатенации settings.TEMPLATES_DIR / "pages", возникла ошибка: {e}'
             )
+=======
+        fpath = settings.TEMPLATES_DIR / "pages" / fname
+>>>>>>> 7b47681 (Initial commit)
         assert os.path.isfile(
             fpath.resolve()
         ), f"Убедитесь, что файл шаблона `{fpath}` существует."

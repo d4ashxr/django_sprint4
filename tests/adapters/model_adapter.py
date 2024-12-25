@@ -1,6 +1,12 @@
+<<<<<<< HEAD
 from abc import abstractmethod, ABC
 from inspect import isclass
 from typing import Union, Type, Any
+=======
+from abc import ABC, abstractmethod
+from inspect import isclass
+from typing import Any, Type, Union
+>>>>>>> 7b47681 (Initial commit)
 
 from django.db.models import Model
 

@@ -1,4 +1,5 @@
 from abc import abstractmethod
+<<<<<<< HEAD
 from typing import Set, Tuple, Optional, Union
 
 from django.db.models import QuerySet, Model
@@ -11,6 +12,16 @@ from form.base_form_tester import (
     AuthorisedSubmitTester,
     SubmitTester,
 )
+=======
+from typing import Optional, Set, Tuple, Union
+
+from conftest import TitledUrlRepr
+from django.db.models import Model, QuerySet
+from django.http import HttpResponse
+from form.base_form_tester import (AnonymousSubmitTester,
+                                   AuthorisedSubmitTester, SubmitTester,
+                                   UnauthorizedSubmitTester)
+>>>>>>> 7b47681 (Initial commit)
 from form.base_tester import BaseTester
 
 

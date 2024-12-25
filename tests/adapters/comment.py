@@ -2,6 +2,7 @@ from inspect import isclass
 from typing import Type
 
 import pytest
+<<<<<<< HEAD
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.db.models import Model
@@ -11,6 +12,17 @@ from blog.models import Post
 from conftest import COMMENT_TEXT_DISPLAY_LEN_FOR_TESTS
 from fixtures.types import CommentModelAdapterT
 
+=======
+from adapters.student_adapter import StudentModelAdapter
+from conftest import COMMENT_TEXT_DISPLAY_LEN_FOR_TESTS
+from django.contrib.auth import get_user_model
+from django.db import models
+from django.db.models import Model
+from fixtures.types import CommentModelAdapterT
+
+from blog.models import Post
+
+>>>>>>> 7b47681 (Initial commit)
 
 @pytest.fixture
 def CommentModelAdapter(CommentModel: type) -> CommentModelAdapterT:

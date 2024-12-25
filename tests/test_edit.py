@@ -1,10 +1,19 @@
+<<<<<<< HEAD
 from typing import Type, Optional, Dict
 
 import django.test
+=======
+from typing import Dict, Optional, Type
+
+import django.test
+from conftest import (KeyVal, _testget_context_item_by_class,
+                      get_get_response_safely)
+>>>>>>> 7b47681 (Initial commit)
 from django.core.files.uploadedfile import SimpleUploadedFile
 from django.db.models import Model
 from django.forms import BaseForm
 from django.http import HttpResponse
+<<<<<<< HEAD
 
 from fixtures.types import ModelAdapterT
 from form.base_form_tester import BaseFormTester
@@ -13,6 +22,10 @@ from conftest import (
     get_get_response_safely,
     _testget_context_item_by_class,
 )
+=======
+from fixtures.types import ModelAdapterT
+from form.base_form_tester import BaseFormTester
+>>>>>>> 7b47681 (Initial commit)
 
 
 def _test_edit(

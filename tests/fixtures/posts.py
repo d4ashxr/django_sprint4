@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from datetime import timedelta
 from io import BytesIO
 from typing import Tuple
@@ -20,6 +21,22 @@ from conftest import (
     _testget_context_item_by_class,
 )
 
+=======
+from datetime import datetime, timedelta
+from typing import Tuple
+
+import pytest
+import pytz
+from conftest import (N_PER_FIXTURE, N_PER_PAGE, KeyVal,
+                      _testget_context_item_by_class,
+                      get_a_post_get_response_safely,
+                      get_create_a_post_get_response_safely)
+from django.db.models import Model
+from django.forms import BaseForm
+from django.test import Client
+from mixer.backend.django import Mixer
+
+>>>>>>> 7b47681 (Initial commit)
 
 @pytest.fixture
 def posts_with_unpublished_category(mixer: Mixer, user: Model):
@@ -31,7 +48,11 @@ def posts_with_unpublished_category(mixer: Mixer, user: Model):
 @pytest.fixture
 def future_posts(mixer: Mixer, user: Model):
     date_later_now = (
+<<<<<<< HEAD
         timezone.now() + timedelta(days=date)
+=======
+        datetime.now(tz=pytz.UTC) + timedelta(days=date)
+>>>>>>> 7b47681 (Initial commit)
         for date in range(1, 11)
     )
     return mixer.cycle(N_PER_FIXTURE).blend(
@@ -81,6 +102,7 @@ def post_of_another_author(
 
 @pytest.fixture
 def post_with_published_location(
+<<<<<<< HEAD
         mixer: Mixer, user, published_location, published_category):
     img = Image.new('RGB', (100, 100), color=(73, 109, 137))
     img_io = BytesIO()
@@ -95,6 +117,16 @@ def post_with_published_location(
         image=image_file
     )
     return post
+=======
+    mixer: Mixer, user, published_location, published_category
+):
+    return mixer.blend(
+        "blog.Post",
+        location=published_location,
+        category=published_category,
+        author=user,
+    )
+>>>>>>> 7b47681 (Initial commit)
 
 
 @pytest.fixture

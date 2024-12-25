@@ -3,11 +3,16 @@ import random
 import re
 from contextlib import contextmanager
 from http import HTTPStatus
+<<<<<<< HEAD
 from typing import Tuple, Type, List
+=======
+from typing import List, Tuple, Type
+>>>>>>> 7b47681 (Initial commit)
 
 import django.test.client
 import pytest
 import pytz
+<<<<<<< HEAD
 from django.db.models import Model, ImageField, DateTimeField
 from django.forms import BaseForm
 from django.http import HttpResponse
@@ -23,6 +28,19 @@ from conftest import (
 from fixtures.types import CommentModelAdapterT, ModelAdapterT
 from form.base_form_tester import (
     FormValidationException, AuthorisedSubmitTester, SubmitTester)
+=======
+from adapters.post import PostModelAdapter
+from conftest import (KeyVal, _TestModelAttrs,
+                      get_create_a_post_get_response_safely,
+                      get_get_response_safely)
+from django.db.models import DateTimeField, ImageField, Model
+from django.forms import BaseForm
+from django.http import HttpResponse
+from django.utils import timezone
+from fixtures.types import CommentModelAdapterT, ModelAdapterT
+from form.base_form_tester import (AuthorisedSubmitTester,
+                                   FormValidationException, SubmitTester)
+>>>>>>> 7b47681 (Initial commit)
 from form.post.create_form_tester import CreatePostFormTester
 from form.post.delete_tester import DeletePostTester
 from form.post.edit_form_tester import EditPostFormTester
@@ -31,6 +49,11 @@ from form.post.form_tester import PostFormTester
 from test_content import MainPostContentTester, main_content_tester
 from test_edit import _test_edit
 
+<<<<<<< HEAD
+=======
+from blog.models import Post
+
+>>>>>>> 7b47681 (Initial commit)
 
 @pytest.mark.parametrize(
     ("field", "type", "params", "field_error", "type_error",
@@ -195,11 +218,18 @@ def test_post(
     @contextmanager
     def set_post_postponed(post_adapter):
         pub_date = post_adapter.pub_date
+<<<<<<< HEAD
         current_date = timezone.now()
         try:
             post_adapter.pub_date = post_adapter.pub_date.replace(
                 year=current_date.year + 1,
                 day=current_date.day - 1 or current_date.day)
+=======
+        current_year = timezone.now().year
+        try:
+            post_adapter.pub_date = post_adapter.pub_date.replace(
+                year=current_year + 1)
+>>>>>>> 7b47681 (Initial commit)
             post_adapter.save()
             yield
         finally:

@@ -4,6 +4,7 @@ import time
 from http import HTTPStatus
 from inspect import getsource
 from pathlib import Path
+<<<<<<< HEAD
 from typing import (
     Iterable,
     Type,
@@ -15,11 +16,19 @@ from typing import (
     NamedTuple,
     TypeVar,
 )
+=======
+from typing import (Any, Iterable, List, NamedTuple, Optional, Tuple, Type,
+                    TypeVar, Union)
+>>>>>>> 7b47681 (Initial commit)
 
 import pytest
 from django.apps import apps
 from django.contrib.auth import get_user_model
+<<<<<<< HEAD
 from django.db.models import Model, Field
+=======
+from django.db.models import Field, Model
+>>>>>>> 7b47681 (Initial commit)
 from django.forms import BaseForm
 from django.http import HttpResponse
 from django.test import override_settings
